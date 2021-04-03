@@ -1,0 +1,23 @@
+:root {
+  --white-color: #fff;
+  --bright-color: hsl(31, 77%, 52%);
+  --mid-color: hsl(184, 100%, 22%);
+  --dark-color: hsl(179, 100%, 13%);
+  --light-grey-color: hsl(0, 0%, 95%);
+  --white-transparent-color: hsla(0, 0%, 100%, 0.75);
+}
+
+html {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  background-color: var(--light-grey-color);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+/*# sourceMappingURL=style.css.map */
