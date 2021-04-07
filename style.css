@@ -88,9 +88,8 @@ body::after {
   font-size: 2.5rem;
 }
 .card__icon {
-  --icon-height: 3rem;
-  height: var(--icon-height);
-  margin-right: calc(100% - var(--icon-height) * 1.6);
+  height: 3rem;
+  margin-right: calc(100% - 3rem * 64 / 40);
 }
 .card__text {
   margin-bottom: 4rem;

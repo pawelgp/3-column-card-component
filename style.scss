@@ -10,18 +10,14 @@
   --default-font-family: 'Lexend Deca', sans-serif;
   --default-font-size: 15px;
   --title-font-family: 'Big Shoulders Display', cursive;
-  // --card-width: calc(var(--default-font-size) * 20);
-  // --deck-width: calc(var(--card-width) * 3);
 }
 
 // mobile width
 $mobile-width: 375px;
 
 // fixed size to keep design pattern
-$card-width: 20rem; //300 / 15
-$deck-width: $card-width * 3;// 3 ia a no. of cards
-//$deck-width: calc(var(--default-font-size) * 20);
-
+$card-width: 20rem; // 300 / 15
+$deck-width: $card-width * 3; // 3 ia a no. of cards
 
 // only for generic .attribution class
 $attribution-height: 50px;
@@ -43,6 +39,7 @@ body {
   min-height: 100vh;
   @include grid-centering();
   position: relative;
+
   // only for generic .attribution class
   &::after {
     content: '';
@@ -62,37 +59,47 @@ body {
   overflow: hidden;
 }
 
+// present values read from svg file 
+@mixin card-icon($present_width: 64, $present_height: 40, $desired_height: 3rem) {
+  height: #{$desired_height};
+  margin-right: calc(100% - #{$desired_height} * #{$present_width} / #{$present_height});
+}
+
 .deck {
   color: var(--white-color);
   display: flex;
-  // flex-wrap: wrap;
   @include rounded_corners();
+
   // to keep design pattern
   @media (max-width: $deck-width) {
     max-width: $card-width;
     flex-direction: column;
-    // max-width: var(--card-width);
   }
+
   // full width for mobile
   @media (max-width: $mobile-width) {
     max-width: 100%;
   }
+
   &__card {
     max-width: $card-width;
     padding: 3rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+
     @media (max-width: $mobile-width) {
       max-width: 100%;
     }
-    
+
     &--bright {
       background-color: var(--bright-color);
     }
+
     &--mid {
       background-color: var(--mid-color);
     }
+
     &--dark {
       background-color: var(--dark-color);
     }
@@ -100,6 +107,7 @@ body {
 }
 
 .card {
+
   // .card attributes => .deck__card above
   &__title {
     margin-top: 2rem;
@@ -107,16 +115,17 @@ body {
     text-transform: uppercase;
     @include title_font();
   }
+
   &__icon {
-    --icon-height: 3rem;
-    height: var(--icon-height);
-    margin-right: calc(100% - var(--icon-height) * 1.6);
+    @include card-icon();
   }
+
   &__text {
     margin-bottom: 4rem;
     line-height: 2rem;
     color: hsla(0, 0%, 100%, 0.8);
   }
+
   &__button {
     width: 8rem;
     padding: 1rem;
@@ -128,16 +137,20 @@ body {
     text-align: center;
     box-shadow: inset 0 0 0 2px var(--white-color);
     transition: ease-out 300ms background-color, color;
+
     &:hover {
       color: var(--white-color);
       background-color: transparent;
     }
+
     &--bright {
       color: var(--bright-color);
     }
+
     &--mid {
       color: var(--mid-color);
     }
+
     &--dark {
       color: var(--dark-color);
     }
